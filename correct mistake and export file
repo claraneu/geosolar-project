@@ -1,0 +1,6 @@
+result = result.replace(to_replace = 'January ', value = 1)
+print(result)
+result.to_csv(r'/Users/wojtas/Downloads/DMIreprep16-19.csv', index = False)
+
+sns.lineplot(x="month", y="timer",
+             data=result)
