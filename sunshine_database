@@ -1,0 +1,147 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+get_ipython().system('pip install --upgrade --force-reinstall pyodbc')
+
+
+# In[ ]:
+
+
+import pyodbc
+
+
+# In[ ]:
+
+
+drivers
+
+
+# In[ ]:
+
+
+drivers = [item for item in pyodbc.drivers()]
+driver = drivers[-1]
+print("driver:{}".format(driver))
+server = 'myserver'
+database = 'geosolar.database.windows.net'
+uid = 'geosolar'
+pwd = 'bestpassword1!'
+con_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={uid};PWD={pwd}'
+print(con_string)
+
+
+# In[ ]:
+
+
+import pyodbc
+import os
+import json
+
+your_password = "bestpassword1!"
+connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=tcp:geosolar.database.windows.net,1433;Database=geosolar;Uid=geosolar;Pwd={bestpassword1!};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=10;"
+
+
+class DB_settings:
+    MAX_PAGE_SIZE = 10000
+    TEST_DB = False
+    @staticmethod
+    def get_connection_str():
+        return connection_string
+    @staticmethod
+    def dim(arr):
+        if not type(arr) == list:
+            return []
+        return [len(arr)] + DB_settings.dim(arr[0])
+    
+def execute_side_effect_stmt(sql_stmt: str, params: list):
+    with pyodbc.connect(DB_settings.get_connection_str()) as conn:
+        cursor = conn.cursor()
+        if len(DB_settings.dim(params)) == 0:
+            params = [[params]]
+        elif len(DB_settings.dim(params)) == 1:
+            params = [params]
+        cursor.executemany(sql_stmt, params)
+        columns = [column[0] for column in cursor.description]
+        results = cursor.fetchall()
+        response = []
+        for row in results:
+            response.append(dict(zip(columns, row)))
+        conn.commit()
+        return response
+    
+def execute_no_side_effect_stmt(
+    sql_stmt: str, params: list = None, empty_response_allowed: bool = False
+):
+    with pyodbc.connect(DB_settings.get_connection_str()) as conn:
+        cursor = conn.cursor()
+        if params:
+            cursor.execute(sql_stmt, params)
+        else:
+            cursor.execute(sql_stmt)
+        columns = [column[0] for column in cursor.description]
+        results = cursor.fetchall()
+        response = []
+        for row in results:
+            response.append(dict(zip(columns, row)))
+        
+        return response
+    
+    
+# ---- GET, POST, PUT, DELETE ----- #
+def execute_select_stmt(sql_stmt: str, params: list = None, empty_response_allowed: bool = False):
+    return execute_no_side_effect_stmt(sql_stmt, params=params, empty_response_allowed=empty_response_allowed)#
+
+def execute_insert_stmt(sql_stmt: str, params: list):
+    return execute_side_effect_stmt(sql_stmt, params)
+
+def execute_update_stmt(sql_stmt: str, params: list):
+    return execute_side_effect_stmt(sql_stmt, params)
+
+def execute_delete_stmt(sql_stmt: str, params: list):
+    return execute_side_effect_stmt(sql_stmt, params)
+
+
+# In[ ]:
+
+
+sql_stmt = "select * from sunshine"
+
+
+# In[ ]:
+
+
+execute_select_stmt(sql_stmt)
+
+
+# In[ ]:
+
+
+get_ipython().system('which python')
+
+
+# In[1]:
+
+
+import pandas as pd
+
+
+# In[2]:
+
+
+sunshine = pd.read_csv('/Users/shabnamsirwani/Downloads/DMIrep16-19.csv', delimiter=";")
+
+
+# In[3]:
+
+
+print(sunshine)
+
+
+# In[ ]:
+
+
+
+
