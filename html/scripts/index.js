@@ -13,12 +13,14 @@ document.getElementById("enterZipcodeButton").addEventListener("click", function
 
     //Validate zipcode 
     if (isNaN(zipcode)){
-        alert("This is not a number")
+        document.getElementById("warningtext").innerHTML  ="Please enter 4-digit zipcode"
+        document.getElementById("warningtext").style.visibility="visible"; //this changes the CSS
         return
     }
 
     if (zipcode.length !== 4){
-        alert("Please enter a 4-digit Zipcode")
+        document.getElementById("warningtext").innerHTML="Danish zipcodes contain 4 digits"
+        document.getElementById("warningtext").style.visibility="visible";
         return
     }
     alert("Thanks for giving me a valid zipcode")

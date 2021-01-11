@@ -12,7 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="css/style.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -57,8 +57,9 @@
             <h1>Geosolar</h1>
             <span class="subheading">Bring sunshine into your life</span>
             <br>
-            <input id="zipcode-input" type="text" placeholder="Please enter your zipcode">
+            <input id="zipcode-input" type="text" placeholder="Please enter your zipcode...">
             <br>
+            <p id='warningtext'></p>
             <br>
             <button type="submit" class="btn btn-primary" id="enterZipcodeButton">Get sunshine</button>
           </div>
@@ -68,27 +69,88 @@
   </header>
 
   <!-- Main Content -->
+<!--Title of the Grid-->
+  <div class="container">
+  <div class="row">
+    <div class="col my-title">
+     How does Geosolar work?
+    </div>
+    <br>
+    <br>
+  <!--Flexbox 6-grid system-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm my-col" style="background-image: url('img/housepicture.jpg')">
+    
+    </div>
+    <div class="col-sm my-col">
+      Enter your zipcode in the above search bar. Our search engine will pull the amount of sunshine hours in your region.
+    </div>
+    <div class="col-sm my-col" style="background-image: url('img/calculator2.jpg')">
+    
+    </div>
+    <div class="col-sm my-col">
+      Choose from a selection of solar panels from companies that operate and deliver to your area
+    </div>
+    <div class="col-sm  my-col" style="background-image: url('img/solarpanels2.jpg')">
+    
+    </div>
+    <div class="col-sm my-col">
+      Our calculator will provide you with the cost of a solar panel investment in your region and when you will reach your break-even point.
+    </div>
+  </div>
+</div>
+
+<!--Picture headings-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm home-step">
+     1. Find your home
+    </div>
+    <div class="col-sm home-step">
+     2. Choose solar panel
+    </div>
+    <div class="col-sm home-step">
+     3. Calculate cost and profits
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!--OG Bootstrap (dont remember what this is)
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
+        
+
       </div>
     </div>
-  </div>
+  </div> 
+!--> 
 
-  <hr>
-
-  <!-- Footer -->
-  <footer>
+   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          
-          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+          <ul class="list-inline text-center">
+             <li class="list-inline-item">
+              <a href="">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Geosolar 2021</p>
         </div>
       </div>
     </div>
-  </footer>
+  </footer> 
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
