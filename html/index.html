@@ -21,6 +21,12 @@
   <!-- Custom styles for this template -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
 
+  <!--FOOTER TEST
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  FOOTER TEST ENDS HERE-->
+
 </head>
 
 <body>
@@ -57,10 +63,12 @@
             <h1>Geosolar</h1>
             <span class="subheading">Bring sunshine into your life</span>
             <br>
-            <input id="zipcode-input" type="text" placeholder="Please enter your zipcode...">
+
+            <!--
+            <input id="zipcode-input" type="text" placeholder="Please enter your municipality">
             <br>
-            <p id='warningtext'></p>
-            <br>
+            <p id='warningtext'></p> -->
+
             <button type="submit" class="btn btn-primary" id="enterZipcodeButton">Get sunshine</button>
           </div>
         </div>
@@ -73,29 +81,28 @@
   <div class="container">
   <div class="row">
     <div class="col my-title">
-     How does Geosolar work?
+     How does Geosolar's calculator work?
     </div>
     <br>
     <br>
   <!--Flexbox 6-grid system-->
 <div class="container">
   <div class="row">
-    <div class="col-sm my-col" style="background-image: url('img/housepicture.jpg')">
-    
+    <div class="col-md my-col" style="background-image: url('img/DKmap.png')">
     </div>
-    <div class="col-sm my-col">
-      Enter your zipcode in the above search bar. Our search engine will pull the amount of sunshine hours in your region.
+    <div class="col-md my-col">
+      In our savings calculator, enter your municipality. Our search engine will pull the amount of sunshine hours in your region.
     </div>
-    <div class="col-sm my-col" style="background-image: url('img/calculator2.jpg')">
-    
+
+    <div class="col-md my-col" style="background-image: url('img/housepicture.jpg')">
     </div>
-    <div class="col-sm my-col">
-      Choose from a selection of solar panels from companies that operate and deliver to your area
+    <div class="col-md my-col">
+     Tell us how many people you live with. That way we can calculate your average energy consumption and the amount of solar panels you need.
+         </div>
+
+    <div class="col-md  my-col" style="background-image: url('img/calculator2.jpg')">
     </div>
-    <div class="col-sm  my-col" style="background-image: url('img/solarpanels2.jpg')">
-    
-    </div>
-    <div class="col-sm my-col">
+    <div class="col-md my-col">
       Our calculator will provide you with the cost of a solar panel investment in your region and when you will reach your break-even point.
     </div>
   </div>
@@ -104,13 +111,13 @@
 <!--Picture headings-->
 <div class="container">
   <div class="row">
-    <div class="col-sm home-step">
+    <div class="col-md home-step">
      1. Find your home
     </div>
-    <div class="col-sm home-step">
+    <div class="col-md home-step">
      2. Choose solar panel
     </div>
-    <div class="col-sm home-step">
+    <div class="col-md home-step">
      3. Calculate cost and profits
     </div>
   </div>
@@ -120,25 +127,15 @@
 <br>
 <br>
 
-<!--OG Bootstrap (dont remember what this is)
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-        
+<!--FOOTER-->
 
-      </div>
-    </div>
-  </div> 
-!--> 
-
-   <footer>
+  <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
-             <li class="list-inline-item">
-              <a href="">
+            <li class="list-inline-item">
+              <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -150,12 +147,16 @@
         </div>
       </div>
     </div>
-  </footer> 
+  </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- My own Javacscript-->
   <script src="scripts/index.js"></script>
+  
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>

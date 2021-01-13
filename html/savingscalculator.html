@@ -66,14 +66,33 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-      </div>
+       <p>Fill out the information below to calculate your households energy consumption. This will give you the number of solar panels that you need for your house and calulate when your investment pays off.</p> 
+       <p> Want to know what solar panels are all about? Read our blog post on <a href="101.html"> Solar Panels 101 </a> to find out more.  </p>
+    </div>
     </div>
   </div>
 
   <hr>
+  <br>
+
+  <div class="container"
+    <form>
+    <div class="form-group">
+      <label for="household-size">How large is your household?</label>
+      <input type="text" class="form-control" id="hh-size" aria-describedby="hh-note" placeholder="No. of people">
+      <small id="hh-note" class="form-text text-muted">Pets are not included ;)</small>
+    </div>
+      <div class="form-group">
+        <label for="municipality">In which municipality do you live in?</label>
+       
+       <!-- dropdown-->
+        <select class="form-control js-example-basic-single" name="kommuner" id="dkmuni" placeholder="Name of municipality">
+        </select>
+  
+        <small id="mun-note" class="form-text text-muted"> å = aa | ø = oe | æ = ae </small>
+      </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
   <!-- Footer -->
   <footer>
@@ -96,9 +115,17 @@
     </div>
   </footer>
 
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+  
+  <!--Select2 dependency: City dropdown thing-->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+  <!--My own Javascript-->
+  <script src="scripts/calculator.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
