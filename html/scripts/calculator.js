@@ -8,7 +8,6 @@ function getData(){
 
 
 //Jquery: Helps me simplify js to enable dropdown. Google search
-//As soon as 
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2({
