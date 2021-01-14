@@ -21,6 +21,8 @@
   <!-- Custom styles for this template -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
 
+  <!-- own CSS-->
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,7 +81,7 @@
     <form>
     <div class="form-group">
       <label for="household-size">How large is your household?</label>
-      <input type="text" class="form-control" id="hh-size" aria-describedby="hh-note" placeholder="No. of people">
+      <input type="number" min="1" class="form-control" id="hh-size" aria-describedby="hh-note" placeholder="No. of people">
       <small id="hh-note" class="form-text text-muted">Pets are not included ;)</small>
     </div>
       <div class="form-group">
@@ -91,12 +93,12 @@
   
         <small id="mun-note" class="form-text text-muted"> Enter the name of your municipality </small>
       </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" id="user-input">Submit</button>
 </form>
 
 <br>
 <br>
-<hr>
+<br> 
 
 <!--USER OUTPUT-->
 
@@ -104,9 +106,9 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body card-left">
         <h5 class="card-title">Amount of Solar Panels your household needs</h5>
-        <p class="card-text"> put cool image that renders number here </p>
+        <p id="solar-panel" class="card-text"> 5 </p>
         
       </div>
     </div>
@@ -114,13 +116,23 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">When will your investment pay off?</h5>
-        <p class="card-text"> Your investment will pay off within xxx years</p>
+        <h5 class="card-title">The cost of your investment is</h5>
+        <p class="card-text">  </p>
+        <p class="card-text card-below">  </p>
         
       </div>
     </div>
   </div>
 </div>
+</div>
+
+<br>
+<br>
+
+<div class="card">
+  <div class="card-body">
+    You will reach your breakeven point in
+  </div>
 </div>
 
 

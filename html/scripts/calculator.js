@@ -6,6 +6,10 @@ function getData(){
 
 //If we make API, we can just exchange code up there
 
+$("#user-input").click(function(){
+    alert("Text: " + $("#hh-size").val());
+  });
+
 
 //Jquery: Helps me simplify js to enable dropdown. Google search
 
@@ -30,3 +34,5 @@ $(document).ready(function() {
 
 
 //dkmuni
+
+

@@ -34,3 +34,20 @@
     text-align:left;
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
+
+#solar-panel{
+    font-size: 80px;
+
+}
+
+.card-left{
+    text-align:center;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.card-body{
+    text-align:center;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 25px;
+
+}
