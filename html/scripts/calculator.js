@@ -7,8 +7,12 @@ function getData(){
 //If we make API, we can just exchange code up there
 
 $("#user-input").click(function(){
-    alert("Text: " + $("#hh-size").val());
-    let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?"
+   
+    let municipalities = $("#dk-muni").val()
+    let energy = $("#engcon").val() //no input field created yet
+    let household = $("#hh-size").val()
+
+    let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+dkmuni+"&energy="+engcon+"&household="+household
     let dataFromApi
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
@@ -43,6 +47,18 @@ $(document).ready(function() {
 
 
 
-//dkmuni
+//Warning for wrong input - so far,only for household. not working and only for when pushing the button
+
+document.getElementById("user-input").addEventListener("click", function())
+{
+  
+let hhsize = document.getElementById("user-input").value
+
+    if (hhsize > 4){
+        document.getElementById("warningtext").innerHTML="Max. input allowed: 4"
+        document.getElementById("warningtext").style.visibility="visible";
+        return
+    }
+    alert("Thanks for giving me a valid number")
 
 

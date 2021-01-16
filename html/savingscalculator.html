@@ -79,22 +79,35 @@
 
   <div class="container"
     <form>
-    <div class="form-group">
-      <label for="household-size">How large is your household?</label>
-      <input type="number" min="1" class="form-control" id="hh-size" aria-describedby="hh-note" placeholder="No. of people">
-      <small id="hh-note" class="form-text text-muted">Pets are not included ;)</small>
+
+     <div class="form-group">
+      <label for="household-size"> 1. Do you know your energy consumption? If not please move to 2. </label>
+      <input type="number" min="1" class="form-control" id="engcon" aria-describedby="hh-note" placeholder="No. in kW">
+      <small id="hh-note" class="form-text text-muted"></small>
     </div>
+
+    <div class="form-group">
+      <label for="household-size"> 2. How large is your household?</label>
+      <input type="number" min="1" class="form-control" id="hh-size" aria-describedby="hh-note" placeholder="No. of people">
+      <small id="hh-note" class="form-text text-muted"> Pets are not included ;) </small>
+      <p id='warningtext'></p> 
+    </div>
+
+
       <div class="form-group">
-        <label for="municipality">In which municipality do you live in?</label>
+        <label for="municipality"> 3. In which municipality do you live in?</label>
        
        <!-- dropdown-->
         <select class="form-control js-example-basic-single" name="kommuner" id="dkmuni" placeholder="Name of municipality">
         </select>
   
         <small id="mun-note" class="form-text text-muted"> Enter the name of your municipality </small>
-      </div>
+      
+  <br>
+
   <button type="submit" class="btn btn-primary" id="user-input">Submit</button>
 </form>
+  </div>
 
 <br>
 <br>
@@ -108,7 +121,7 @@
     <div class="card">
       <div class="card-body card-left">
         <h5 class="card-title">Amount of Solar Panels your household needs</h5>
-        <p id="solar-panel" class="card-text"> 5 </p>
+        <p id="solarpanels" class="card-text"> 5 </p>
         
       </div>
     </div>
@@ -117,7 +130,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">The cost of your investment is</h5>
-        <p class="card-text">  </p>
+        <p id ="investmentcost" class="card-text"> test  </p>
         <p class="card-text card-below">  </p>
         
       </div>
@@ -131,7 +144,9 @@
 
 <div class="card">
   <div class="card-body">
-    You will reach your breakeven point in
+    <h5> You will reach your breakeven point in </h5>
+    <p id="breakeven"> test xx </p>
+    <p> years </p>
   </div>
 </div>
 

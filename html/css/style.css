@@ -1,3 +1,11 @@
+/*specific for 101 header*/
+h4{
+    display: block;
+    font-size: 2em;
+    margin-left: 75px
+    font-weight: bold
+} 
+
 #warningtext{
   color:red;
   visibility: hidden;
@@ -19,6 +27,11 @@
 
 }
 
+
+
+/*Solar 101*/
+
+
 /* Title */
 .my-title{
     font-size:26px;
@@ -35,7 +48,7 @@
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
-#solar-panel{
+#solarpanels{
     font-size: 80px;
 
 }
@@ -49,5 +62,21 @@
     text-align:center;
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 25px;
+
+}
+
+/*right card 101*/
+.my-card{
+    text-align:left;
+    font-family: 'Lora','Times New Roman',serif;
+    font-size: 17px;
+
+}
+
+/* 101 image to the left */
+.card-img-top{
+    text-align:center;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 15px;
 
 }
