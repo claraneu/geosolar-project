@@ -8,11 +8,11 @@ function getData(){
 
 $("#user-input").click(function(){
     alert("Text: " + $("#hh-size").val());
-    let url = 'https://geosolarapi.azurewebsites.net/api/HttpTrigger3?municipalities=test&energy=test&household=test'
+    let url = 
 
-    fetch( url)
-    .then(response => alert(JSON.stringify(response))) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
-    //.then(data => alert(data)); //The fetch returns a promise (line 13), and we already know its a json file ()
+    fetch('https://geosolarapi.azurewebsites.net/api/HttpTrigger3?municipalities=test&energy=test&household=test')
+    .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    .then(data => alert(data)); //The fetch returns a promise (line 13), and we already know its a json file ()
 
   });
 
