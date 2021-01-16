@@ -8,10 +8,16 @@ function getData(){
 
 $("#user-input").click(function(){
     alert("Text: " + $("#hh-size").val());
+    let url = 'https://geosolarapi.azurewebsites.net/api/HttpTrigger3?municipalities=test&energy=test&household=test'
+
+    fetch( url)
+    .then(response => alert(JSON.stringify(response))) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    //.then(data => alert(data)); //The fetch returns a promise (line 13), and we already know its a json file ()
+
   });
 
 
-//Jquery: Helps me simplify js to enable dropdown. Google search
+//Jquery: Helps me simplify js to enable dropdown.
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2({
