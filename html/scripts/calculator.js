@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 //Warning for wrong input - so far,only for household. not working and only for when pushing the button
 
-document.getElementById("user-input").addEventListener("click", function())
+document.getElementById("user-input").addEventListener("click", function()
 {
   
 let hhsize = document.getElementById("user-input").value
@@ -66,4 +66,4 @@ let hhsize = document.getElementById("user-input").value
     }
     alert("Thanks for giving me a valid number")
 
-
+})
