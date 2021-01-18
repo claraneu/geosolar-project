@@ -1,22 +1,20 @@
-import logging
-import azure.functions as func
-import json
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+
+def test():
+    print('Python HTTP trigger function processed a request.')
  
 
-    municipalities = req.params.get('municipalities')
+    municipalities = "Roskilde"
 
-    logging.info("municipalities->" +municipalities )
+    print(municipalities )
 
-    energy = req.params.get('energy')
+    energy = 5000
 
-    logging.info("energy-> "+energy)
+    print(energy)
 
-    household = req.params.get('household')
+    household = 2
     
-    logging.info("household-> "+household)
+    print(household)
 
     householdDatabase = {1: 1500, 2: 2500, 3: 3500, 4: 4250}
 
@@ -126,21 +124,21 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         EnergyConsumption = energy
        #use energy
     else:
-        logging.info("householdDatabase-> "+householdDatabase[household])
+        print(householdDatabase[household])
         EnergyConsumption = householdDatabase[household]
         #use household
 
-    logging.info(EnergyConsumption)
-    logging.info(sunshineHoursDatabase["Roskilde"])
+    print(EnergyConsumption)
+    print(sunshineHoursDatabase["Roskilde"])
 
     PriceOfPanel = 0
     SunlightHours = sunshineHoursDatabase[municipalities]
 
-    logging.info(SunlightHours)
+    print(SunlightHours)
     NoOfPanels = round(EnergyConsumption / (SunlightHours*0.3))
-    logging.info(NoOfPanels) 
+    print(NoOfPanels) 
     SystemSize = round((NoOfPanels * 0.3))
-    logging.info(SystemSize)
+    print(SystemSize)
 
     
     message = ""
@@ -173,8 +171,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         "breakeven" : BreakEvenYear,
         "message": message
     }    
-    return func.HttpResponse(json.dumps(resp), status_code=200)
+    return resp
 
+print(test())
 
    
    

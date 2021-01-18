@@ -5,8 +5,6 @@ function getData(){
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
-        alert(data)
-        console.log(data)
         
         let muni = data.kommuner //then plug only gets executed when the 
         for (i = 0; i < muni.length; i++) {
@@ -28,12 +26,12 @@ $("#user-input").click(function(){
     let energy = $("#engcon").val() //no input field created yet
     let household = $("#hh-size").val()
 
-    let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+dkmuni+"&energy="+engcon+"&household="+household
+    let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+municipalities+"&energy="+energy+"&household="+household
     let dataFromApi
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => dataFromApi = data); //The fetch returns a promise (line 13), and we already know its a json file ()
-  
+  console.log(dataFromApi)
     //dataFromApi = {"solarpanels": 5, "investmentcost": 3000, "breakeven": 4.5}
 
     //dataFromApi.solarpanels -> 5 
