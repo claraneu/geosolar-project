@@ -5,12 +5,16 @@ function getData(){
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
+        alert(data)
+        console.log(data)
+        /*
         let muni = data.kommumer //then plug only gets executed when the 
         for (i = 0; i < muni.length; i++) {
             let newOption = new Option(muni[i], muni[i], false, false); //has two values cause when we select the value it could be something different
             $('#dkmuni').append(newOption).trigger('change');//append data to my select box
     
           }
+          */
     }); //The fetch returns a promise (line 13), and we already know its a json file ()
   
     
