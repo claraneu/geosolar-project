@@ -1,7 +1,12 @@
 function getData(){
-    let muni = ["København","Aarhus","Køge"];
 
-    return muni;
+    let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger3"
+    let dataFromApi
+    fetch(url)
+    .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    .then(data => {return data}); //The fetch returns a promise (line 13), and we already know its a json file ()
+  
+    
 }
 
 //If we make API, we can just exchange code up there

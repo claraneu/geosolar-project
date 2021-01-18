@@ -5,16 +5,9 @@ import json
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("Python HTTP trigger function processed a request.")
-    municipalities = req.params.get("municipalities")
-    energy = req.params.get("energy")
-    household = req.params.get("household")
-    # Dictionary with panel prices
-    #Creating dataframe for solar panal system prices and required roof space
-    #panel_prices = {‘System Size in kWp
-    # ’:[‘1,5kWp’,‘2,5kWp’,‘3,5kWp’,‘4,25kWp’],‘Price in DKK’:[28500,37600,51100,56500],‘Roof space in sqm’: [8.2,13,19.8,23.1]}
-    #Insert our code here (3 step breakeven calculation)
-    #Calculate yearly production for 1 panel at a certain location
-    #production = sunshine_hours * 300
-    #municipalities=test&energy=test&household=test
-    resp = {"Hello" : "World", "test" : municipalities+energy+household}
+
+    sunshineHoursDatabase= ["Aabenraa" , "Aalborg", "Aarhus", "Æro","Albertslund","Allerød","Assens","Ballerup","Billund","Bornholm","Brøndby", "Brønderslev","Dragør","Egedal", "Esbjerg",  "Faaborg-Midtfyn","Fanø","Favrskov","Faxe","Fredensborg","Fredericia","Frederiksberg","Frederikshavn","Frederikssund","Furesø","Gentofte","Gladsaxe","Glostrup","Greve","Gribskov","Guldborgsund","Haderslev","Halsnæs","Hedensted","Helsingør","Herlev","Herning","Hillerød","Hjørring","Høje-Taastrup","Holbæk","Holstebro","Horsens","Hørsholm","Hvidovre","Ikast-Brande","Ishøj","Jammerbugt","Kalundborg","Kerteminde","Københavns","Køge","Kolding","Læso","Langeland","Lejre","Lemvig","Lolland","Lyngby-Taarbæk","Mariagerfjord","Middelfart","Morsø","Næstved","Norddjurs","Nordfyn","Nyborg","Odder","Odense","Odsherred","Randers","Rebild","Ringkøbing-Skjern","Ringsted","Rødovre","Roskilde","Rudersdal","Samsø","Silkeborg","Skanderborg","Skive","Slagelse","Solrød","Sønderborg","Sorø","Stevns","Struer","Svendborg","Syddjurs","Tårnby","Thisted","Tønder","Vallensbæk","Varde","Vejen","Vejle","Vesthimmerland","Viborg","Vordingborg"]
+
+
+    resp = {'kommuner':sunshineHoursDatabase}
     return func.HttpResponse(json.dumps(resp), status_code=200)
