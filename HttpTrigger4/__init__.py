@@ -3,23 +3,7 @@ import azure.functions as func
 import json
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
  
-
-    municipalities = req.params.get('municipalities')
-
-    logging.info("municipalities->" +municipalities )
-
-    energy = req.params.get('energy')
-
-    logging.info("energy-> "+energy)
-
-    household = req.params.get('household')
-    
-    logging.info("household-> "+household)
-
-    householdDatabase = {1: 1500, 2: 2500, 3: 3500, 4: 4250}
-
     sunshineHoursDatabase = {
     "Aabenraa": 1590,
     "Aalborg": 1782,
@@ -120,59 +104,76 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     "Viborg": 1639,
     "Vordingborg": 1814
     }
+ 
+ 
+    logging.info('Python HTTP trigger function processed a request.')
+
+    municipalities = req.params.get('municipalities')
+
+    energy = req.params.get('energy') #The api will always read the values from req.params.get as strings (1/2)
+   
+    household = req.params.get('household')
+
+    householdDatabase = {"1": 1500, "2": 2500, "3": 3500, "4": 4250}
 
     EnergyConsumption = -1
-    if energy != "":
-        EnergyConsumption = energy
+
+    if energy != "na": #if the energy field is left empty in the frontend, the frontend should send "na" as the parameter of 'energy'
+        EnergyConsumption = float(energy)  # Therefore we need to parse the values as floats to use these as numbers (2/2)
        #use energy
     else:
-        logging.info("householdDatabase-> "+householdDatabase[household])
         EnergyConsumption = householdDatabase[household]
         #use household
 
-    logging.info(EnergyConsumption)
-    logging.info(sunshineHoursDatabase["Roskilde"])
 
     PriceOfPanel = 0
     SunlightHours = sunshineHoursDatabase[municipalities]
 
-    logging.info(SunlightHours)
     NoOfPanels = round(EnergyConsumption / (SunlightHours*0.3))
-    logging.info(NoOfPanels) 
+   
     SystemSize = round((NoOfPanels * 0.3))
-    logging.info(SystemSize)
 
-    
+    BreakEvenYear =-1 #BreakeEvenYear and message needs to initialized with dummy values, so that we can assign values to them in the if/else
+                      # and still use them in the scope after the if/else statement
     message = ""
     if SystemSize <= 1.5:
         PriceOfPanel = 28500
         RoofSpace = 8.2
         message = "Success"
+        BreakEvenYear = (PriceOfPanel / (SunlightHours * SystemSize * 2.23))*2
+
     elif SystemSize <= 2.5:
         PriceOfPanel = 37600
         RoofSpace = 13
         message = "Success"
+        BreakEvenYear = (PriceOfPanel / (SunlightHours * SystemSize * 2.23))*2
+
     elif SystemSize <= 3.5:
         PriceOfPanel = 51100
         RoofSpace = 19.8
         message = "Success"
+        BreakEvenYear = (PriceOfPanel / (SunlightHours * SystemSize * 2.23))*2
+
     elif SystemSize <= 4.25:
         PriceOfPanel = 56500
         RoofSpace = 23.1
         message = "Success"
+        BreakEvenYear = (PriceOfPanel / (SunlightHours * SystemSize * 2.23))*2    
     else:
         PriceOfPanel = -1
         RoofSpace = -1
         message = 'Oh, your energy consumption is quite high - please contact us directly for an accurate offer'
     
-    BreakEvenYear = (PriceOfPanel / (SunlightHours * SystemSize * 2.23))*2
-    
+    #If the calculater cant send an appropriate calculation (because the energy consumption is too high)
+    # all the values returned will be -1. That way the frontend will know, that -1 is an invalid response. 
+        
     resp =  {
         "solarpanels" : PriceOfPanel, 
         "investmentcost" : RoofSpace,
         "breakeven" : BreakEvenYear,
         "message": message
     }    
+
     return func.HttpResponse(json.dumps(resp), status_code=200)
 
 
