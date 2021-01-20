@@ -69,7 +69,10 @@ $("#user-input").click(function() //use jquery to store three variables in the u
         let solarpanels = dataFromApi.solarpanels
         let investmentcost = dataFromApi.investmentcost
         let breakeven = dataFromApi.breakeven
+        let message = dataFromApi.message
+
      
+        displayWarning(message)
 
         $("#solarpanels").html(solarpanels + " DKK" )
         $("#investmentcost").html(investmentcost+ " sqm")
@@ -83,6 +86,13 @@ $("#user-input").click(function() //use jquery to store three variables in the u
 
 
 function displayWarning (warningtext) {
+    if(warningtext == "Success"){
+        $("#warningtext").css("color", "green")
+    }
+    else{
+        $("#warningtext").css("color", "red")
+
+    }
     document.getElementById("warningtext").innerHTML = warningtext;
     document.getElementById("warningtext").style.visibility = "visible";
 }
