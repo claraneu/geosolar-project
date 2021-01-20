@@ -46,7 +46,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
 
     // Needs to be 1 and 5, otherwise warning is triggered and the function is exited
     if  (parseInt(household)>= 5 || parseInt(household) <= 1 ){
-        displayWarning("Max. household of 4")
+        displayWarning("Max. household of 4 or enter your energy consumption")
         return
     }
  // Using a function to reuse code: This method we used, is a refactoring method (a extract function) by identifiying code that was almost the same
@@ -56,13 +56,13 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     }
 
     if (household == ""){
-        household = "0" //send 0 to API
+        household = 2 //send 0 to API
     }
 
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+
     municipalities+"&energy="+energy+"&household="+household
-    let dataFromApi
+    var dataFromApi
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
