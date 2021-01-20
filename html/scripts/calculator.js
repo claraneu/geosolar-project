@@ -1,4 +1,5 @@
 //Jquery: Helps me simplify js to enable dropdown. (Everytime I see a dollar-sign)
+var dataFromApi
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2({
@@ -62,14 +63,13 @@ $("#user-input").click(function() //use jquery to store three variables in the u
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+
     municipalities+"&energy="+energy+"&household="+household
-    var dataFromApi
     fetch(url)
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         dataFromApi =data
 
     }); //The fetch returns a promise (line 13), and we already know its a json file ()
-  
+    
     let solarpanels = dataFromApi.solarpanels
     alert(solarpanels)
     let investmentcost = dataFromApi.investmentcost
