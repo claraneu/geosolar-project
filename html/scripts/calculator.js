@@ -16,9 +16,9 @@ function getData(){
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger3"
     fetch(url)
     .then(response =>{
-        if(response.ok)
+        if(! response.ok) //ok = 200 - asks if http request came back ok (not)
         {
-            warningtext("The api didn't like yoSur request")
+            displayWarning("The api didn't like yoSur request")
             return
         }
         return response.json()
