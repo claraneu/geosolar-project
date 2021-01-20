@@ -55,6 +55,10 @@ $("#user-input").click(function() //use jquery to store three variables in the u
         energy = "na" //If there is no input in the energy field, na needs to be send to API to ensure proper calculation
     }
 
+    if (household == ""){
+        household = "0" //send 0 to API
+    }
+
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+
     municipalities+"&energy="+energy+"&household="+household
