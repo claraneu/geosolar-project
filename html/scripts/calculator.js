@@ -67,24 +67,16 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     .then(data => {
         dataFromApi =data
         let solarpanels = dataFromApi.solarpanels
-        alert(solarpanels)
         let investmentcost = dataFromApi.investmentcost
-        alert (investmentcost)
         let breakeven = dataFromApi.breakeven
-        alert (breakeven)
+     
 
-        $("#solarpanels").innerHTML=solarpanels
-        $("#investmentcost").innerHTML=investmentcost
-        $("#breakeven").innerHTML=breakeven
+        $("#solarpanels").html(solarpanels + " DKK" )
+        $("#investmentcost").html(investmentcost+ " sqm")
+        $("#breakeven").html(breakeven+ " years")
         
 
-    }); //The fetch returns a promise (line 13), and we already know its a json file ()
-    
-
-  
-    //dataFromApi = {"solarpanels": 5, "investmentcost": 3000, "breakeven": 4.5}
-
-    //dataFromApi.solarpanels -> 5 
+    }); 
 
 });
 
