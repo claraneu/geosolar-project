@@ -27,12 +27,13 @@ function getData(){
           
     });   
     
-}
+} 
+
 
 //This is Jquery saying "give me the item that used the id # and make it so, that when it is clicked, the following funcion will be executed:
 $("#user-input").click(function() //use jquery to store three variables in the user-input
 {
-    let municipalities = $("#dk-muni").val()
+    let municipalities = $("#dkmuni").val()
     let energy = $("#engcon").val() 
     let household = $("#hh-size").val()
 
@@ -63,7 +64,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     .then(data => {
         alert (data)
     }); //The fetch returns a promise (line 13), and we already know its a json file ()
-  console.log(dataFromApi)
+  //console.log(dataFromApi)
 
   
     //dataFromApi = {"solarpanels": 5, "investmentcost": 3000, "breakeven": 4.5}
