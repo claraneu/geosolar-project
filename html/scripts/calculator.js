@@ -23,7 +23,7 @@ function getData(){
 $("#user-input").click(function(){
    
     let municipalities = $("#dk-muni").val()
-    let energy = $("#engcon").val() //no input field created yet
+    let energy = $("#engcon").val() 
     let household = $("#hh-size").val()
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+municipalities+"&energy="+energy+"&household="+household
@@ -53,22 +53,39 @@ $(document).ready(function() {
 
 
 });
-
-
-
-
 //Warning for wrong input - so far,only for household. not working and only for when pushing the button
 
-document.getElementById("user-input").addEventListener("click", function()
+// document.getElementById("user-input").addEventListener("click", function()
+// {
+  
+// let hhsize = document.getElementById("user-input").value
+
+//     if (hhsize > 4){
+//         document.getElementById("warningtext").innerHTML="Max. input allowed: 4"
+//         document.getElementById("warningtext").style.visibility="visible";
+//         return
+//     }
+//     alert("Thanks for giving me a valid number")
+
+// })
+
+
+
+//INPUT VALIDATION
+
+document.getElementById("user-input").addEventListener("click", function() //user input button 
 {
   
-let hhsize = document.getElementById("user-input").value
+ let engcon = document.getElementById("engcon").value
+    //returns value of the energy input
 
-    if (hhsize > 4){
-        document.getElementById("warningtext").innerHTML="Max. input allowed: 4"
+    //Simulating that we are sending data to the backend
+
+//Validate input
+
+    if (engcon <= 4 && engcon >= 1 ){
+        document.getElementById("warningtext").innerHTML="Max. 4 only"
         document.getElementById("warningtext").style.visibility="visible";
         return
     }
-    alert("Thanks for giving me a valid number")
-
 })
