@@ -67,6 +67,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         alert (data)
+        alert(JSON.stringify(data))
     }); //The fetch returns a promise (line 13), and we already know its a json file ()
   //console.log(dataFromApi)
 
