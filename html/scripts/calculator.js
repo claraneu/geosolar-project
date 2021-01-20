@@ -1,5 +1,4 @@
 //Jquery: Helps me simplify js to enable dropdown. (Everytime I see a dollar-sign)
-var dataFromApi
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2({
@@ -67,15 +66,20 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         dataFromApi =data
+        let solarpanels = dataFromApi.solarpanels
+        alert(solarpanels)
+        let investmentcost = dataFromApi.investmentcost
+        alert (investmentcost)
+        let breakeven = dataFromApi.breakeven
+        alert (breakeven)
+
+        $("#solarpanels").innerHTML=solarpanels
+        $("#investmentcost").innerHTML=investmentcost
+        $("#breakeven").innerHTML=breakeven
+        
 
     }); //The fetch returns a promise (line 13), and we already know its a json file ()
     
-    let solarpanels = dataFromApi.solarpanels
-    alert(solarpanels)
-    let investmentcost = dataFromApi.investmentcost
-    alert (investmentcost)
-    let breakeven = dataFromApi.breakeven
-    alert (breakeven)
 
   
     //dataFromApi = {"solarpanels": 5, "investmentcost": 3000, "breakeven": 4.5}
