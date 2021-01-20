@@ -15,7 +15,15 @@ function getData(){
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger3"
     fetch(url)
-    .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    .then(response =>{
+        if(response.ok)
+        {
+            warningtext("The api didn't like yoSur request")
+            return
+        }
+        return response.json()
+        
+    } ) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         
         let muni = data.kommuner //data has an array called kommuner that we stored in variable called muni. Then we used an array to iterate that array 
@@ -56,7 +64,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     }
 
     if (household == ""){
-        household = 2 //send 0 to API
+        household = "2" //send 0 to API
     }
 
 
