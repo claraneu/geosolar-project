@@ -15,15 +15,7 @@ function getData(){
 
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger3"
     fetch(url)
-    .then(response =>{
-        if(! response.ok) //ok = 200 - asks if http request came back ok (not)
-        {
-            displayWarning("The api didn't like yoSur request")
-            return
-        }
-        return response.json()
-        
-    } ) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    .then(response => response.json() ) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         
         let muni = data.kommuner //data has an array called kommuner that we stored in variable called muni. Then we used an array to iterate that array 
@@ -71,7 +63,16 @@ $("#user-input").click(function() //use jquery to store three variables in the u
     let url = "https://geosolarapi.azurewebsites.net/api/HttpTrigger4?municipalities="+
     municipalities+"&energy="+energy+"&household="+household
     fetch(url)
-    .then(response => response.json()) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
+    .then(response =>
+        {
+            if(! response.ok) //ok = 200 - asks if http request came back ok (not)
+            {
+                displayWarning("The api didn't like yoSur request")
+                return
+            }
+            return response.json()
+            
+        }) //these two are promises, giving asynchronous behavior, so that the promise first gets resolved when
     .then(data => {
         dataFromApi =data
         let solarpanels = dataFromApi.solarpanels
