@@ -68,6 +68,9 @@ $("#user-input").click(function() //use jquery to store three variables in the u
             if(! response.ok) //ok = 200 - asks if http request came back ok (not)
             {
                 displayWarning("The api didn't like yoSur request")
+                $("#solarpanels").html("")
+                $("#investmentcost").html("")
+                $("#breakeven").html("")
                 return
             }
             return response.json()
