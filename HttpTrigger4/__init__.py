@@ -110,9 +110,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     municipalities = req.params.get('municipalities')
 
-    energy = req.params.get('energy') #The api will always read the values from req.params.get as strings (1/2)
-   
+    energy = req.params.get('energy')
+    
     household = req.params.get('household')
+
+     #The api will always read the values from req.params.get as strings (1/2)
+   
 
     householdDatabase = {"1": 1500, "2": 2500, "3": 3500, "4": 4250}
 
