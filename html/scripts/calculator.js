@@ -67,7 +67,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
         {
             if(! response.ok) //ok = 200 - asks if http request came back ok (not)
             {
-                displayWarning("The API didn't like your request. Please enter your household size instead")
+                displayWarning("The API didn't like your request.")
                 $("#solarpanels").html("")
                 $("#investmentcost").html("")
                 $("#breakeven").html("")
