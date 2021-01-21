@@ -67,7 +67,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
         {
             if(! response.ok) //ok = 200 - asks if http request came back ok (not)
             {
-                displayWarning("The api didn't like yoSur request")
+                displayWarning("The API didn't like your request. Please enter your household size instead")
                 $("#solarpanels").html("")
                 $("#investmentcost").html("")
                 $("#breakeven").html("")
@@ -88,7 +88,7 @@ $("#user-input").click(function() //use jquery to store three variables in the u
 
         $("#solarpanels").html(solarpanels + " DKK" )
         $("#investmentcost").html(investmentcost+ " sqm")
-        $("#breakeven").html(breakeven+ " years")
+        $("#breakeven").html(parseInt(breakeven).toFixed(2)+ " years") //parseInt turns string to number, toFixed rounds two to decimals
         
 
     }); 

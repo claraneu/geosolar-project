@@ -49,8 +49,12 @@ h4{
 }
 
 #solarpanels{
-    font-size: 80px;
+    font-size: 40px;
 
+}
+
+#investmentcost{
+    font-size: 40px;
 }
 
 .card-left{
