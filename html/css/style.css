@@ -31,6 +31,32 @@ h4{
 
 /*Solar 101*/
 
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit:cover;
+    padding: 70px;
+
+}
+
+.mb-3{
+    margin: 100px;
+}
+
+.card-1 {
+    text-align: left;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+
+
+}
+
+.mx-auto{
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+
+
+}
 
 /* Title */
 .my-title{
